@@ -3,185 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOUNG TRS | Urban Lifestyle</title>
+    <title>YOUNG TRS | Official Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #ff1a1a;
+            --primary: #e60000;
             --whatsapp: #25d366;
-            --bg: #050505;
-            --card-bg: #111;
+            --bg: #000000;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--bg); color: #fff; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
+        body { background-color: var(--bg); color: #fff; }
 
-        .top-bar { background: var(--primary); color: white; text-align: center; padding: 10px; font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
-
+        /* HEADER */
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; background: rgba(0,0,0,0.95);
-            position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #1a1a1a;
+            padding: 20px 5%; background: #000; border-bottom: 2px solid var(--primary);
         }
-
-        .logo { font-size: 28px; font-weight: 900; letter-spacing: -1px; }
+        .logo { font-size: 26px; font-weight: 900; color: #fff; }
         .logo span { color: var(--primary); }
 
-        /* HERO - AIR JORDAN VERMELHA NA TELA */
+        /* HERO - AIR JORDAN VERMELHA NO FUNDO */
         .hero {
-            height: 85vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1597045566774-ed1aa29d497f?q=80&w=1470');
-            background-size: cover; 
+            height: 80vh;
+            width: 100%;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1597045566774-ed1aa29d497f?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
             background-position: center;
-            display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
-            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-bottom: 4px solid var(--primary);
         }
 
-        .hero h1 { font-size: 5rem; text-transform: uppercase; font-weight: 900; color: #fff; line-height: 0.9; text-shadow: 2px 4px 10px rgba(0,0,0,0.5); }
-        .hero .msg-boas-vindas { font-size: 1.5rem; color: #fff; margin: 25px 0; font-weight: 300; letter-spacing: 2px; }
-        .hero .btn-main { background: var(--primary); color: white; padding: 18px 45px; border-radius: 5px; text-decoration: none; font-weight: 900; transition: 0.3s; border: 2px solid var(--primary); }
-        .hero .btn-main:hover { background: transparent; color: var(--primary); }
+        /* MENSAGEM DE BOAS VINDAS */
+        .welcome-msg {
+            background: rgba(230, 0, 0, 0.85);
+            padding: 20px 40px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(230, 0, 0, 0.5);
+        }
+        .welcome-msg h2 { font-size: 25px; text-transform: uppercase; letter-spacing: 2px; }
 
-        .section { padding: 80px 8%; }
-        .section-h { margin-bottom: 50px; border-left: 8px solid var(--primary); padding-left: 20px; }
-        .section-h h2 { font-size: 2.5rem; text-transform: uppercase; }
+        .hero h1 { font-size: 60px; line-height: 1; text-transform: uppercase; margin-bottom: 20px; }
+        .btn-catalogo {
+            background: #fff; color: #000; padding: 15px 40px; 
+            text-decoration: none; font-weight: 900; border-radius: 50px;
+            transition: 0.3s;
+        }
+        .btn-catalogo:hover { background: var(--primary); color: #fff; }
 
-        /* Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        /* GRID DE PRODUTOS */
+        .section { padding: 50px 5%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: #111; border: 1px solid #222; padding: 15px; border-radius: 8px; text-align: center; }
+        .card img { width: 100%; height: 250px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; }
+        .card h3 { font-size: 18px; margin-bottom: 10px; }
+        .price { color: var(--primary); font-size: 20px; font-weight: 900; display: block; margin-bottom: 15px; }
         
-        .card { background: var(--card-bg); border-radius: 5px; overflow: hidden; border: 1px solid #222; transition: 0.4s; position: relative; }
-        .card:hover { border-color: var(--primary); transform: translateY(-10px); }
-        
-        .card img { width: 100%; height: 320px; object-fit: cover; }
-        
-        .card-content { padding: 25px; text-align: center; }
-        .card-content h3 { font-size: 18px; margin-bottom: 12px; color: #fff; font-weight: 600; }
-        .price { font-weight: 900; color: var(--primary); font-size: 24px; display: block; margin-bottom: 20px; }
-
-        .btn-order {
-            width: 100%; padding: 15px; background: var(--whatsapp); color: white;
-            border: none; border-radius: 4px; font-weight: 900; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; gap: 10px; text-transform: uppercase;
+        .btn-buy {
+            background: var(--whatsapp); color: #fff; padding: 12px;
+            text-decoration: none; display: block; border-radius: 5px; font-weight: bold;
         }
 
-        /* Badge Novo */
-        .badge { position: absolute; top: 15px; left: 15px; background: var(--primary); color: white; padding: 5px 15px; font-weight: 900; font-size: 12px; border-radius: 3px; }
-
-        footer { background: #000; padding: 60px 8%; text-align: center; border-top: 1px solid #1a1a1a; }
+        footer { text-align: center; padding: 40px; background: #080808; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">📍 BEIRA - ENVIAMOS PARA TODO O PAÍS | QUALIDADE PREMIUM 📍</div>
-
     <header>
         <div class="logo">YOUNG <span>TRS</span></div>
-        <div style="font-size: 18px; color: #25d366; font-weight: 900;"><i class="fab fa-whatsapp"></i> 874055437</div>
+        <div style="color: var(--whatsapp); font-size: 18px;"><i class="fab fa-whatsapp"></i> 874055437</div>
     </header>
 
+    <!-- TELA DE EXIBIÇÃO COM JORDAN E BOAS-VINDAS -->
     <section class="hero">
-        <h1>EXCLUSIVE<br>COLLECTION</h1>
-        <div class="msg-boas-vindas">BEM-VINDO À TUA LOJA DE REFERÊNCIA NA BEIRA</div>
-        <a href="#loja" class="btn-main">VER CATALOGO COMPLETO</a>
+        <div class="welcome-msg">
+            <h2>Bem-vindo à YOUNG TRS</h2>
+            <p>A tua loja de referência na Beira!</p>
+        </div>
+        <h1>AIR JORDAN 1<br><span style="color: var(--primary);">RED EDITION</span></h1>
+        <a href="#artigos" class="btn-catalogo">VER COLEÇÃO</a>
     </section>
 
-    <!-- PRODUTOS -->
-    <section class="section" id="loja">
-        <div class="section-h"><h2>Sneakers & Streetwear</h2></div>
+    <!-- ACESSORIOS E ARTIGOS -->
+    <section class="section" id="artigos">
+        <h2 style="margin-bottom: 30px; border-left: 5px solid var(--primary); padding-left: 15px;">ARTIGOS EM DESTAQUE</h2>
         <div class="grid">
             
-            <!-- Jordan na vitrine -->
+            <!-- Air Jordan Artigo -->
             <div class="card">
-                <div class="badge">HOT</div>
-                <img src="https://images.unsplash.com/photo-1597045566774-ed1aa29d497f?q=80&w=600" alt="Jordan">
-                <div class="card-content">
-                    <h3>Air Jordan 1 Red/White</h3>
-                    <span class="price">5.500 MT</span>
-                    <button onclick="enviar('Air Jordan 1 Red')" class="btn-order"><i class="fab fa-whatsapp"></i> Encomendar</button>
-                </div>
+                <img src="https://images.unsplash.com/photo-1597045566774-ed1aa29d497f?w=500" alt="Jordan">
+                <h3>Air Jordan 1 High</h3>
+                <span class="price">5.500 MT</span>
+                <a href="https://wa.me/258874055437" class="btn-buy">COMPRAR VIA WHATSAPP</a>
             </div>
 
-            <!-- Adidas Campus Correto -->
+            <!-- Adidas Artigo -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1707057053538-422839999974?q=80&w=600" alt="Adidas Campus">
-                <div class="card-content">
-                    <h3>Adidas Campus 00s Black</h3>
-                    <span class="price">4.200 MT</span>
-                    <button onclick="enviar('Adidas Campus Black')" class="btn-order"><i class="fab fa-whatsapp"></i> Encomendar</button>
-                </div>
+                <img src="https://images.unsplash.com/photo-1707057053538-422839999974?w=500" alt="Adidas">
+                <h3>Adidas Campus Black</h3>
+                <span class="price">4.200 MT</span>
+                <a href="https://wa.me/258874055437" class="btn-buy">COMPRAR VIA WHATSAPP</a>
             </div>
 
-            <!-- Camisola -->
+            <!-- Relógio Artigo -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=600" alt="Camisola">
-                <div class="card-content">
-                    <h3>Camisoula Urban Style</h3>
-                    <span class="price">1.500 MT</span>
-                    <button onclick="enviar('Camisoula Urban')" class="btn-order"><i class="fab fa-whatsapp"></i> Encomendar</button>
-                </div>
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Relogio">
+                <h3>Relógio Silver Urban</h3>
+                <span class="price">1.800 MT</span>
+                <a href="https://wa.me/258874055437" class="btn-buy">COMPRAR VIA WHATSAPP</a>
             </div>
 
-        </div>
-    </section>
+            <!-- Outro Acessório -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1511499767390-903390e6fbc4?w=500" alt="Oculos">
+                <h3>Óculos Dark Vision</h3>
+                <span class="price">1.200 MT</span>
+                <a href="https://wa.me/258874055437" class="btn-buy">COMPRAR VIA WHATSAPP</a>
+            </div>
 
-    <!-- ACESSORIOS EXPANDIDOS -->
-    <section class="section" id="acessorios" style="background: #080808;">
-        <div class="section-h"><h2>Acessórios & Relógios</h2></div>
-        <div class="grid">
-            <!-- Relogio 1 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600" alt="Relogio">
-                <div class="card-content">
-                    <h3>Relógio Silver Edition</h3>
-                    <span class="price">1.800 MT</span>
-                    <button onclick="enviar('Relogio Silver')" class="btn-order">Encomendar</button>
-                </div>
-            </div>
-            <!-- Relogio 2 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1547996160-81dfa63595ee?q=80&w=600" alt="Relogio">
-                <div class="card-content">
-                    <h3>Relógio Black Matte</h3>
-                    <span class="price">2.200 MT</span>
-                    <button onclick="enviar('Relogio Black')" class="btn-order">Encomendar</button>
-                </div>
-            </div>
-            <!-- Corrente -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1635767793021-952078b197c0?q=80&w=600" alt="Corrente">
-                <div class="card-content">
-                    <h3>Urban Gold Chain</h3>
-                    <span class="price">850 MT</span>
-                    <button onclick="enviar('Corrente Ouro')" class="btn-order">Encomendar</button>
-                </div>
-            </div>
-            <!-- Óculos -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1511499767390-903390e6fbc4?q=80&w=600" alt="Oculos">
-                <div class="card-content">
-                    <h3>Óculos Dark Vision</h3>
-                    <span class="price">1.200 MT</span>
-                    <button onclick="enviar('Oculos Dark')" class="btn-order">Encomendar</button>
-                </div>
-            </div>
         </div>
     </section>
 
     <footer>
-        <h2 style="color: var(--primary); margin-bottom: 20px;">YOUNG TRS OFFICIAL</h2>
-        <p>A melhor qualidade premium de Moçambique.</p>
-        <p>WhatsApp: 874055437 | Beira</p>
-        <br>
-        <p style="font-size: 11px; opacity: 0.4;">© 2026 Todos os direitos reservados.</p>
+        <p>YOUNG TRS - Qualidade Premium</p>
+        <p>Beira, Moçambique | Tel: 874055437</p>
     </footer>
-
-    <script>
-        function enviar(produto) {
-            let texto = "Olá YOUNG TRS! 👋 Vi no site e quero comprar: *" + produto + "*";
-            window.open("https://wa.me/258874055437?text=" + encodeURIComponent(texto));
-        }
-    </script>
 
 </body>
 </html>
