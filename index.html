@@ -246,3 +246,275 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUNG TRS | Urban Style & Delivery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        /* Barra de Entrega */
+        .delivery-bar {
+            background: #ff3e3e;
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(0, 0, 0, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .logo { font-size: 24px; font-weight: 900; }
+        .logo span { color: #ff3e3e; }
+
+        nav ul { list-style: none; display: flex; align-items: center; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: #eee; font-size: 0.9rem; }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1470&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .welcome-msg {
+            max-width: 800px;
+        }
+
+        .welcome-msg h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; }
+        .welcome-msg p { font-size: 1.2rem; color: #ccc; margin-bottom: 30px; }
+
+        /* Seção de Produtos */
+        .container { padding: 80px 8%; }
+        .section-title { margin-bottom: 50px; border-left: 5px solid #ff3e3e; padding-left: 15px; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .card:hover { transform: translateY(-5px); border-color: #444; }
+
+        .card img { width: 100%; height: 280px; object-fit: cover; }
+
+        .card-info { padding: 20px; }
+        .card-info h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .card-info .price { color: #ff3e3e; font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 15px; }
+
+        .btn-buy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Localização e Info */
+        .info-box {
+            background: #111;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .info-text h2 { margin-bottom: 15px; color: #ff3e3e; }
+        .info-text p { color: #aaa; line-height: 1.6; margin-bottom: 10px; }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            z-index: 2000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        footer { text-align: center; padding: 50px; background: #000; border-top: 1px solid #1a1a1a; color: #555; }
+
+        @media (max-width: 768px) {
+            .info-box { grid-template-columns: 1fr; }
+            .welcome-msg h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="delivery-bar">
+        🚀 Fazemos entregas em todo o país (Moçambique)
+    </div>
+
+    <header>
+        <div class="logo">YOUNG <span>TRS</span></div>
+        <nav>
+            <ul>
+                <li><a href="#produtos">Loja</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="https://wa.me/258874055437" style="color: #25d366; font-weight: bold;">WhatsApp</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="welcome-msg">
+            <h1>Seja bem-vindo à YOUNG TRS</h1>
+            <p>Onde o estilo urbano encontra a qualidade premium. Explore nossa nova coleção e eleve o seu visual hoje mesmo.</p>
+            <a href="#produtos" style="padding: 15px 40px; background: #ff3e3e; color: white; text-decoration: none; font-weight: bold; border-radius: 5px;">VER ARTIGOS</a>
+        </div>
+    </section>
+
+    <div class="container" id="produtos">
+        <div class="section-title">
+            <h2>Novos Artigos</h2>
+            <p style="color: #666;">Peças exclusivas disponíveis agora</p>
+        </div>
+
+        <div class="product-grid">
+            <!-- Artigo 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=500" alt="Camisa">
+                <div class="card-info">
+                    <h3>Camisa T-Shirt Premium</h3>
+                    <span class="price">1.200 MT</span>
+                    <a href="https://wa.me/258874055437?text=Quero a Camisa T-Shirt Premium" class="btn-buy"><i class="fab fa-whatsapp"></i> Encomendar</a>
+                </div>
+            </div>
+
+            <!-- Artigo 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=500" alt="Sapatilha">
+                <div class="card-info">
+                    <h3>Sapatilha Urban Sport</h3>
+                    <span class="price">3.800 MT</span>
+                    <a href="https://wa.me/258874055437?text=Quero a Sapatilha Urban Sport" class="btn-buy"><i class="fab fa-whatsapp"></i> Encomendar</a>
+                </div>
+            </div>
+
+            <!-- Artigo 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=500" alt="Camisolas">
+                <div class="card-info">
+                    <h3>Hoodie Confort Street</h3>
+                    <span class="price">2.500 MT</span>
+                    <a href="https://wa.me/258874055437?text=Quero a Hoodie Confort Street" class="btn-buy"><i class="fab fa-whatsapp"></i> Encomendar</a>
+                </div>
+            </div>
+
+            <!-- Artigo 4 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=500" alt="Camisa">
+                <div class="card-info">
+                    <h3>Camisa Oversized Black</h3>
+                    <span class="price">1.400 MT</span>
+                    <a href="https://wa.me/258874055437?text=Quero a Camisa Oversized Black" class="btn-buy"><i class="fab fa-whatsapp"></i> Encomendar</a>
+                </div>
+            </div>
+
+            <!-- Artigo 5 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500" alt="Sapatilha">
+                <div class="card-info">
+                    <h3>Sneaker Red Force</h3>
+                    <span class="price">4.500 MT</span>
+                    <a href="https://wa.me/258874055437?text=Quero a Sapatilha Sneaker Red Force" class="btn-buy"><i class="fab fa-whatsapp"></i> Encomendar</a>
+                </div>
+            </div>
+
+            <!-- Artigo 6 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=500" alt="Camisa">
+                <div class="card-info">
+                    <h3>Camisa Urban White</h3>
+                    <span class="price">1.200 MT</span>
+                    <a href="https://wa.me/258874055437?text=Quero a Camisa Urban White" class="btn-buy"><i class="fab fa-whatsapp"></i> Encomendar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box" id="sobre">
+            <div class="info-text">
+                <h2>Onde Estamos?</h2>
+                <p><i class="fas fa-map-marker-alt" style="color: #ff3e3e;"></i> <strong>Localização:</strong> Cidade da Beira, Moçambique.</p>
+                <p><i class="fas fa-truck" style="color: #ff3e3e;"></i> <strong>Entregas:</strong> Enviamos para Maputo, Nampula, Tete e todas as províncias via correio ou transporte interprovincial.</p>
+                <p><i class="fas fa-clock" style="color: #ff3e3e;"></i> <strong>Atendimento:</strong> Seg - Sáb, 08h às 18h.</p>
+            </div>
+            <div style="text-align: center;">
+                <i class="fas fa-shipping-fast" style="font-size: 5rem; color: #222;"></i>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/258874055437" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>&copy; 2026 YOUNG TRS. Todos os direitos reservados.</p>
+        <p>Contacto: +258 874055437</p>
+    </footer>
+
+</body>
+</html>
