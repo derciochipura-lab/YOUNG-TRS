@@ -3,215 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOUNG TRS | Urban Streetwear</title>
-    <!-- Ícones Font Awesome -->
+    <title>YOUNG TRS | Urban Style & Delivery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- CSS ESTILIZAÇÃO --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background-color: #0a0a0a;
+            background-color: #050505;
             color: #ffffff;
             scroll-behavior: smooth;
         }
 
-        /* Header e Navegação */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: rgba(0, 0, 0, 0.9);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #222;
-        }
-
-        .logo {
-            font-size: 26px;
-            font-weight: 900;
+        /* Barra de Entrega */
+        .delivery-bar {
+            background: #ff3e3e;
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            font-weight: bold;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        .logo span {
-            color: #ff3e3e; /* Vermelho vibrante para destaque */
-        }
-
-        nav ul {
-            list-style: none;
+        header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
+            padding: 15px 8%;
+            background: rgba(0, 0, 0, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #1a1a1a;
         }
 
-        nav ul li {
-            margin-left: 30px;
-        }
+        .logo { font-size: 24px; font-weight: 900; }
+        .logo span { color: #ff3e3e; }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #ccc;
-            font-weight: 500;
-            transition: 0.3s;
-        }
+        nav ul { list-style: none; display: flex; align-items: center; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: #eee; font-size: 0.9rem; }
 
-        nav ul li a:hover {
-            color: #fff;
-        }
-
-        .btn-whats-top {
-            background: #25d366;
-            color: #fff !important;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        /* Seção Hero (Banner Principal) */
+        /* Hero Section */
         .hero {
-            height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1974&auto=format&fit=crop');
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1470&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 80px;
+            padding: 0 20px;
         }
 
-        .hero-content h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            letter-spacing: -2px;
+        .welcome-msg {
+            max-width: 800px;
         }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            color: #bbb;
-            margin-bottom: 30px;
-        }
-
-        .cta-main {
-            display: inline-block;
-            padding: 18px 40px;
-            background: #ffffff;
-            color: #000;
-            text-decoration: none;
-            border-radius: 2px;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: 0.4s;
-        }
-
-        .cta-main:hover {
-            background: #ff3e3e;
-            color: #fff;
-            transform: translateY(-5px);
-        }
+        .welcome-msg h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; }
+        .welcome-msg p { font-size: 1.2rem; color: #ccc; margin-bottom: 30px; }
 
         /* Seção de Produtos */
-        .products {
-            padding: 100px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-        }
-
-        .section-title .bar {
-            width: 80px;
-            height: 4px;
-            background: #ff3e3e;
-            margin: 10px auto;
-        }
+        .container { padding: 80px 8%; }
+        .section-title { margin-bottom: 50px; border-left: 5px solid #ff3e3e; padding-left: 15px; }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
 
-        .product-card {
+        .card {
             background: #111;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: 0.4s;
             border: 1px solid #222;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            border-color: #444;
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            filter: grayscale(20%);
-            transition: 0.5s;
-        }
-
-        .product-card:hover img {
-            filter: grayscale(0%);
-        }
-
-        .product-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .product-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            color: #ff3e3e;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .buy-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: #25d366;
-            color: white;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 4px;
-            font-weight: bold;
+            border-radius: 12px;
+            overflow: hidden;
             transition: 0.3s;
         }
 
-        .buy-button:hover {
-            background: #1eb954;
+        .card:hover { transform: translateY(-5px); border-color: #444; }
+
+        .card img { width: 100%; height: 280px; object-fit: cover; }
+
+        .card-info { padding: 20px; }
+        .card-info h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .card-info .price { color: #ff3e3e; font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 15px; }
+
+        .btn-buy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
         }
 
-        /* Botão Flutuante WhatsApp */
-        .whatsapp-fixed {
+        /* Localização e Info */
+        .info-box {
+            background: #111;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .info-text h2 { margin-bottom: 15px; color: #ff3e3e; }
+        .info-text p { color: #aaa; line-height: 1.6; margin-bottom: 10px; }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
@@ -223,137 +140,132 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 32px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            z-index: 999;
-            transition: 0.3s;
-        }
-
-        .whatsapp-fixed:hover {
-            transform: scale(1.1);
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
-            padding: 60px 8%;
-            text-align: center;
-            border-top: 1px solid #222;
-        }
-
-        .footer-logo {
             font-size: 30px;
-            font-weight: bold;
-            margin-bottom: 20px;
+            z-index: 2000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
-        footer p {
-            color: #666;
-            font-size: 0.9rem;
-        }
+        footer { text-align: center; padding: 50px; background: #000; border-top: 1px solid #1a1a1a; color: #555; }
 
-        /* Responsividade */
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            nav { display: none; } /* Simplicidade para mobile */
+            .info-box { grid-template-columns: 1fr; }
+            .welcome-msg h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO -->
+    <div class="delivery-bar">
+        🚀 Fazemos entregas em todo o país (Moçambique)
+    </div>
+
     <header>
         <div class="logo">YOUNG <span>TRS</span></div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#produtos">Coleção</a></li>
-                <li><a href="https://wa.me/258874055437" target="_blank" class="btn-whats-top">
-                    <i class="fab fa-whatsapp"></i> 874055437
-                </a></li>
+                <li><a href="#produtos">Loja</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="https://wa.me/258874055437" style="color: #25d366; font-weight: bold;">WhatsApp</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- BANNER PRINCIPAL -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>STREETWEAR VIBES</h1>
-            <p>A moda urbana que conecta você ao futuro.</p>
-            <a href="#produtos" class="cta-main">Explorar Loja</a>
+        <div class="welcome-msg">
+            <h1>Seja bem-vindo à YOUNG TRS</h1>
+            <p>Onde o estilo urbano encontra a qualidade premium. Explore nossa nova coleção e eleve o seu visual hoje mesmo.</p>
+            <a href="#produtos" style="padding: 15px 40px; background: #ff3e3e; color: white; text-decoration: none; font-weight: bold; border-radius: 5px;">VER ARTIGOS</a>
         </div>
     </section>
 
-    <!-- PRODUTOS -->
-    <section class="products" id="produtos">
+    <div class="container" id="produtos">
         <div class="section-title">
-            <h2>Nossas Peças</h2>
-            <div class="bar"></div>
+            <h2>Novos Artigos</h2>
+            <p style="color: #666;">Peças exclusivas disponíveis agora</p>
         </div>
 
         <div class="product-grid">
-            
-            <!-- Camisa -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=500" alt="Camisa Preta">
-                <div class="product-info">
-                    <h3>Camisa Black Urban</h3>
-                    <p class="price">1.500 MT</p>
-                    <a href="https://wa.me/258874055437?text=Olá! Gostaria de encomendar a Camisa Black Urban" class="buy-button">
-                        <i class="fab fa-whatsapp"></i> Comprar agora
-                    </a>
+            <!-- Artigo 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=500" alt="Camisa">
+                <div class="card-info">
+                    <h3>Camisa T-Shirt Premium</h3>
+                    <span class="price">1.200 MT</span>
+                    <a href="https://wa.me/258874055437?text=Quero a Camisa T-Shirt Premium" class="btn-buy"><i class="fab fa-whatsapp"></i> Encomendar</a>
                 </div>
             </div>
 
-            <!-- Sapatilhas -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=500" alt="Sapatilhas">
-                <div class="product-info">
-                    <h3>Sapatilha Air Max Style</h3>
-                    <p class="price">4.200 MT</p>
-                    <a href="https://wa.me/258874055437?text=Olá! Gostaria de encomendar a Sapatilha Air Max Style" class="buy-button">
-                        <i class="fab fa-whatsapp"></i> Comprar agora
-                    </a>
+            <!-- Artigo 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=500" alt="Sapatilha">
+                <div class="card-info">
+                    <h3>Sapatilha Urban Sport</h3>
+                    <span class="price">3.800 MT</span>
+                    <a href="https://wa.me/258874055437?text=Quero a Sapatilha Urban Sport" class="btn-buy"><i class="fab fa-whatsapp"></i> Encomendar</a>
                 </div>
             </div>
 
-            <!-- Camisolas -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=500" alt="Hoodie">
-                <div class="product-info">
-                    <h3>Camisola Hoodie Grey</h3>
-                    <p class="price">2.800 MT</p>
-                    <a href="https://wa.me/258874055437?text=Olá! Gostaria de encomendar a Camisola Hoodie Grey" class="buy-button">
-                        <i class="fab fa-whatsapp"></i> Comprar agora
-                    </a>
+            <!-- Artigo 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=500" alt="Camisolas">
+                <div class="card-info">
+                    <h3>Hoodie Confort Street</h3>
+                    <span class="price">2.500 MT</span>
+                    <a href="https://wa.me/258874055437?text=Quero a Hoodie Confort Street" class="btn-buy"><i class="fab fa-whatsapp"></i> Encomendar</a>
                 </div>
             </div>
 
-            <!-- Mais um item (Boné/Acessório) -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=500" alt="Boné">
-                <div class="product-info">
-                    <h3>Acessórios Premium</h3>
-                    <p class="price">850 MT</p>
-                    <a href="https://wa.me/258874055437?text=Olá! Gostaria de ver os acessórios disponíveis" class="buy-button">
-                        <i class="fab fa-whatsapp"></i> Ver Opções
-                    </a>
+            <!-- Artigo 4 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=500" alt="Camisa">
+                <div class="card-info">
+                    <h3>Camisa Oversized Black</h3>
+                    <span class="price">1.400 MT</span>
+                    <a href="https://wa.me/258874055437?text=Quero a Camisa Oversized Black" class="btn-buy"><i class="fab fa-whatsapp"></i> Encomendar</a>
                 </div>
             </div>
 
+            <!-- Artigo 5 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500" alt="Sapatilha">
+                <div class="card-info">
+                    <h3>Sneaker Red Force</h3>
+                    <span class="price">4.500 MT</span>
+                    <a href="https://wa.me/258874055437?text=Quero a Sapatilha Sneaker Red Force" class="btn-buy"><i class="fab fa-whatsapp"></i> Encomendar</a>
+                </div>
+            </div>
+
+            <!-- Artigo 6 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=500" alt="Camisa">
+                <div class="card-info">
+                    <h3>Camisa Urban White</h3>
+                    <span class="price">1.200 MT</span>
+                    <a href="https://wa.me/258874055437?text=Quero a Camisa Urban White" class="btn-buy"><i class="fab fa-whatsapp"></i> Encomendar</a>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/258874055437" class="whatsapp-fixed" target="_blank">
+        <div class="info-box" id="sobre">
+            <div class="info-text">
+                <h2>Onde Estamos?</h2>
+                <p><i class="fas fa-map-marker-alt" style="color: #ff3e3e;"></i> <strong>Localização:</strong> Cidade da Beira, Moçambique.</p>
+                <p><i class="fas fa-truck" style="color: #ff3e3e;"></i> <strong>Entregas:</strong> Enviamos para Maputo, Nampula, Tete e todas as províncias via correio ou transporte interprovincial.</p>
+                <p><i class="fas fa-clock" style="color: #ff3e3e;"></i> <strong>Atendimento:</strong> Seg - Sáb, 08h às 18h.</p>
+            </div>
+            <div style="text-align: center;">
+                <i class="fas fa-shipping-fast" style="font-size: 5rem; color: #222;"></i>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/258874055437" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- RODAPÉ -->
     <footer>
-        <div class="footer-logo">YOUNG <span>TRS</span></div>
-        <p>A melhor loja de streetwear de Moçambique.</p>
-        <p style="margin-top: 10px;">&copy; 2026 YOUNG TRS - Desenvolvido para o Sucesso.</p>
+        <p>&copy; 2026 YOUNG TRS. Todos os direitos reservados.</p>
+        <p>Contacto: +258 874055437</p>
     </footer>
 
 </body>
