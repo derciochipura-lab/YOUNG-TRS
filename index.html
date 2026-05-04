@@ -3,140 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOUNG TRS | Official Store</title>
+    <title>YOUNG TRS | Urban Lifestyle</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #ff3e3e;
+            --primary: #ff1a1a;
             --whatsapp: #25d366;
-            --bg: #0a0a0a;
-            --card-bg: #151515;
+            --bg: #050505;
+            --card-bg: #111;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--bg); color: #fff; scroll-behavior: smooth; }
 
-        .top-bar { background: var(--primary); color: white; text-align: center; padding: 8px; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+        .top-bar { background: var(--primary); color: white; text-align: center; padding: 10px; font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
 
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 8%; background: rgba(0,0,0,0.9);
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #222;
+            padding: 20px 8%; background: rgba(0,0,0,0.95);
+            position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #1a1a1a;
         }
 
-        .logo { font-size: 24px; font-weight: 900; letter-spacing: 1px; }
+        .logo { font-size: 28px; font-weight: 900; letter-spacing: -1px; }
         .logo span { color: var(--primary); }
 
-        /* Hero com a Nike Vermelha no Fundo */
+        /* HERO - AIR JORDAN VERMELHA NA TELA */
         .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1470&auto=format&fit=crop');
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1597045566774-ed1aa29d497f?q=80&w=1470');
             background-size: cover; 
             background-position: center;
             display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
-            border-bottom: 3px solid var(--primary);
+            padding: 0 20px;
         }
 
-        .hero h1 { font-size: 4rem; text-transform: uppercase; font-weight: 900; line-height: 1; }
-        .hero p { color: #fff; font-size: 1.2rem; margin: 20px 0; background: rgba(255, 62, 62, 0.7); padding: 5px 15px; border-radius: 4px; }
+        .hero h1 { font-size: 5rem; text-transform: uppercase; font-weight: 900; color: #fff; line-height: 0.9; text-shadow: 2px 4px 10px rgba(0,0,0,0.5); }
+        .hero .msg-boas-vindas { font-size: 1.5rem; color: #fff; margin: 25px 0; font-weight: 300; letter-spacing: 2px; }
+        .hero .btn-main { background: var(--primary); color: white; padding: 18px 45px; border-radius: 5px; text-decoration: none; font-weight: 900; transition: 0.3s; border: 2px solid var(--primary); }
+        .hero .btn-main:hover { background: transparent; color: var(--primary); }
 
-        .section { padding: 60px 8%; }
-        .section-h { margin-bottom: 40px; border-left: 5px solid var(--primary); padding-left: 15px; }
+        .section { padding: 80px 8%; }
+        .section-h { margin-bottom: 50px; border-left: 8px solid var(--primary); padding-left: 20px; }
+        .section-h h2 { font-size: 2.5rem; text-transform: uppercase; }
 
-        /* Grid de Produtos */
+        /* Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         
-        .card { background: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: 0.3s; }
-        .card:hover { border-color: var(--primary); }
+        .card { background: var(--card-bg); border-radius: 5px; overflow: hidden; border: 1px solid #222; transition: 0.4s; position: relative; }
+        .card:hover { border-color: var(--primary); transform: translateY(-10px); }
         
-        .card img { width: 100%; height: 300px; object-fit: cover; display: block; }
+        .card img { width: 100%; height: 320px; object-fit: cover; }
         
-        .card-content { padding: 20px; }
-        .card-content h3 { font-size: 18px; margin-bottom: 10px; color: #eee; }
-        .price { font-weight: bold; color: var(--primary); font-size: 22px; display: block; margin-bottom: 15px; }
+        .card-content { padding: 25px; text-align: center; }
+        .card-content h3 { font-size: 18px; margin-bottom: 12px; color: #fff; font-weight: 600; }
+        .price { font-weight: 900; color: var(--primary); font-size: 24px; display: block; margin-bottom: 20px; }
 
         .btn-order {
-            width: 100%; padding: 12px; background: var(--whatsapp); color: white;
-            border: none; border-radius: 6px; font-weight: bold; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none;
+            width: 100%; padding: 15px; background: var(--whatsapp); color: white;
+            border: none; border-radius: 4px; font-weight: 900; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 10px; text-transform: uppercase;
         }
 
-        .info-footer { background: #000; padding: 40px 8%; text-align: center; border-top: 1px solid #222; }
+        /* Badge Novo */
+        .badge { position: absolute; top: 15px; left: 15px; background: var(--primary); color: white; padding: 5px 15px; font-weight: 900; font-size: 12px; border-radius: 3px; }
+
+        footer { background: #000; padding: 60px 8%; text-align: center; border-top: 1px solid #1a1a1a; }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">🔥 QUALIDADE PREMIUM | ENTREGAS EM TODA BEIRA E MOÇAMBIQUE 🔥</div>
+    <div class="top-bar">📍 BEIRA - ENVIAMOS PARA TODO O PAÍS | QUALIDADE PREMIUM 📍</div>
 
     <header>
         <div class="logo">YOUNG <span>TRS</span></div>
-        <div style="font-size: 16px; color: #25d366; font-weight: bold;"><i class="fab fa-whatsapp"></i> 874055437</div>
+        <div style="font-size: 18px; color: #25d366; font-weight: 900;"><i class="fab fa-whatsapp"></i> 874055437</div>
     </header>
 
     <section class="hero">
-        <h1>STREETWEAR<br>VIBES</h1>
-        <p>BEM-VINDO À YOUNG TRS - A TUA LOJA Nº1</p>
-        <a href="#artigos" style="background: white; color: black; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 14px;">COMPRAR AGORA</a>
+        <h1>EXCLUSIVE<br>COLLECTION</h1>
+        <div class="msg-boas-vindas">BEM-VINDO À TUA LOJA DE REFERÊNCIA NA BEIRA</div>
+        <a href="#loja" class="btn-main">VER CATALOGO COMPLETO</a>
     </section>
 
     <!-- PRODUTOS -->
-    <section class="section" id="artigos">
-        <div class="section-h"><h2>Destaques da Semana</h2></div>
+    <section class="section" id="loja">
+        <div class="section-h"><h2>Sneakers & Streetwear</h2></div>
         <div class="grid">
             
-            <!-- NIKE VERMELHA (Repetida no grid para venda) -->
+            <!-- Jordan na vitrine -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600" alt="Nike Air Max">
+                <div class="badge">HOT</div>
+                <img src="https://images.unsplash.com/photo-1597045566774-ed1aa29d497f?q=80&w=600" alt="Jordan">
                 <div class="card-content">
-                    <h3>Nike Air Max Red Premium</h3>
-                    <span class="price">4.800 MT</span>
-                    <button onclick="enviar('Nike Red')" class="btn-order"><i class="fab fa-whatsapp"></i> Encomendar</button>
+                    <h3>Air Jordan 1 Red/White</h3>
+                    <span class="price">5.500 MT</span>
+                    <button onclick="enviar('Air Jordan 1 Red')" class="btn-order"><i class="fab fa-whatsapp"></i> Encomendar</button>
                 </div>
             </div>
 
-            <!-- ADIDAS CAMPUS - FOTO CORRETA AGORA -->
+            <!-- Adidas Campus Correto -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1707057053538-422839999974?q=80&w=600&auto=format&fit=crop" alt="Adidas Campus">
+                <img src="https://images.unsplash.com/photo-1707057053538-422839999974?q=80&w=600" alt="Adidas Campus">
                 <div class="card-content">
                     <h3>Adidas Campus 00s Black</h3>
                     <span class="price">4.200 MT</span>
-                    <button onclick="enviar('Adidas Campus')" class="btn-order"><i class="fab fa-whatsapp"></i> Encomendar</button>
+                    <button onclick="enviar('Adidas Campus Black')" class="btn-order"><i class="fab fa-whatsapp"></i> Encomendar</button>
                 </div>
             </div>
 
-            <!-- RELOGIO -->
+            <!-- Camisola -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600" alt="Relogio">
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=600" alt="Camisola">
                 <div class="card-content">
-                    <h3>Relógio Silver Edition</h3>
-                    <span class="price">1.800 MT</span>
-                    <button onclick="enviar('Relogio Silver')" class="btn-order"><i class="fab fa-whatsapp"></i> Encomendar</button>
-                </div>
-            </div>
-
-            <!-- CAMISOLA -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600" alt="Camisola">
-                <div class="card-content">
-                    <h3>Hoodie Urban Black</h3>
-                    <span class="price">2.200 MT</span>
-                    <button onclick="enviar('Hoodie Black')" class="btn-order"><i class="fab fa-whatsapp"></i> Encomendar</button>
+                    <h3>Camisoula Urban Style</h3>
+                    <span class="price">1.500 MT</span>
+                    <button onclick="enviar('Camisoula Urban')" class="btn-order"><i class="fab fa-whatsapp"></i> Encomendar</button>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <div class="info-footer">
-        <h2 style="margin-bottom: 10px;">YOUNG TRS</h2>
-        <p>Beira, Moçambique</p>
-        <p>WhatsApp: 874055437</p>
-    </div>
+    <!-- ACESSORIOS EXPANDIDOS -->
+    <section class="section" id="acessorios" style="background: #080808;">
+        <div class="section-h"><h2>Acessórios & Relógios</h2></div>
+        <div class="grid">
+            <!-- Relogio 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600" alt="Relogio">
+                <div class="card-content">
+                    <h3>Relógio Silver Edition</h3>
+                    <span class="price">1.800 MT</span>
+                    <button onclick="enviar('Relogio Silver')" class="btn-order">Encomendar</button>
+                </div>
+            </div>
+            <!-- Relogio 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1547996160-81dfa63595ee?q=80&w=600" alt="Relogio">
+                <div class="card-content">
+                    <h3>Relógio Black Matte</h3>
+                    <span class="price">2.200 MT</span>
+                    <button onclick="enviar('Relogio Black')" class="btn-order">Encomendar</button>
+                </div>
+            </div>
+            <!-- Corrente -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1635767793021-952078b197c0?q=80&w=600" alt="Corrente">
+                <div class="card-content">
+                    <h3>Urban Gold Chain</h3>
+                    <span class="price">850 MT</span>
+                    <button onclick="enviar('Corrente Ouro')" class="btn-order">Encomendar</button>
+                </div>
+            </div>
+            <!-- Óculos -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1511499767390-903390e6fbc4?q=80&w=600" alt="Oculos">
+                <div class="card-content">
+                    <h3>Óculos Dark Vision</h3>
+                    <span class="price">1.200 MT</span>
+                    <button onclick="enviar('Oculos Dark')" class="btn-order">Encomendar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2 style="color: var(--primary); margin-bottom: 20px;">YOUNG TRS OFFICIAL</h2>
+        <p>A melhor qualidade premium de Moçambique.</p>
+        <p>WhatsApp: 874055437 | Beira</p>
+        <br>
+        <p style="font-size: 11px; opacity: 0.4;">© 2026 Todos os direitos reservados.</p>
+    </footer>
 
     <script>
         function enviar(produto) {
-            let texto = "Olá YOUNG TRS! Quero informações sobre: *" + produto + "*";
+            let texto = "Olá YOUNG TRS! 👋 Vi no site e quero comprar: *" + produto + "*";
             window.open("https://wa.me/258874055437?text=" + encodeURIComponent(texto));
         }
     </script>
