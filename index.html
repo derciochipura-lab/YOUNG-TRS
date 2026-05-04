@@ -3,180 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOUNG TRS | Urban Lifestyle Beira</title>
+    <title>YOUNG TRS | Urban Catalog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #ff3e3e; --whatsapp: #25d366; --bg: #050505; --card: #121212; }
+        :root { --primary: #ff3e3e; --whatsapp: #25d366; --bg: #080808; --card: #151515; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg); color: #fff; scroll-behavior: smooth; padding-bottom: 120px; }
+        body { background-color: var(--bg); color: #fff; padding-bottom: 120px; }
 
-        /* Banner de Boas-Vindas */
-        .header-top { background: var(--primary); color: white; text-align: center; padding: 10px; font-size: 12px; font-weight: bold; letter-spacing: 1px; }
-        
+        /* Boas-Vindas */
+        .welcome-header { 
+            padding: 60px 8% 20px; text-align: center; 
+            background: linear-gradient(to bottom, #111, var(--bg));
+        }
+        .welcome-header h1 { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; }
+        .welcome-header p { color: var(--primary); font-weight: bold; margin-top: 10px; }
+
         header { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 20px 8%; background: rgba(0,0,0,0.95); position: sticky; top: 0; z-index: 1000;
-            border-bottom: 1px solid #222;
+            padding: 20px 8%; border-bottom: 1px solid #222; position: sticky; top: 0; background: var(--bg); z-index: 1000;
         }
-        .logo { font-size: 28px; font-weight: 900; }
+        .logo { font-size: 24px; font-weight: 900; }
         .logo span { color: var(--primary); }
 
-        .hero {
-            height: 50vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=1200');
-            background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center;
-        }
-        .hero h1 { font-size: 3rem; text-transform: uppercase; margin-bottom: 10px; }
-
-        /* Grid de Produtos */
+        /* Grid */
         .section { padding: 40px 8%; }
-        .category-title { margin: 40px 0 20px; font-size: 1.8rem; border-left: 5px solid var(--primary); padding-left: 15px; text-transform: uppercase; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-        .card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: 0.3s; }
-        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .card img { width: 100%; height: 300px; object-fit: cover; }
-        
-        .card-body { padding: 15px; text-align: center; }
-        .price { color: var(--primary); font-weight: bold; font-size: 1.2rem; display: block; margin: 10px 0; }
-        
-        .btn-select { 
-            width: 100%; padding: 12px; background: #fff; color: #000; border: none; 
-            border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s;
+        .category-label { 
+            font-size: 1.5rem; text-transform: uppercase; margin-bottom: 30px; 
+            display: flex; align-items: center; gap: 15px; 
         }
-        .btn-select:hover { background: var(--primary); color: #fff; }
+        .category-label::after { content: ''; flex: 1; height: 1px; background: #333; }
 
-        /* Barra de Pedido */
-        .order-bar {
-            position: fixed; bottom: 0; left: 0; width: 100%; background: #111; 
-            padding: 20px 8%; border-top: 3px solid var(--primary);
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+        
+        .product-card { background: var(--card); border-radius: 8px; overflow: hidden; transition: 0.3s; border: 1px solid #222; }
+        .product-card:hover { border-color: var(--primary); }
+        
+        /* Imagens focadas apenas no produto */
+        .product-card img { width: 100%; height: 280px; object-fit: contain; background: #fff; padding: 10px; }
+        
+        .p-details { padding: 20px; text-align: center; }
+        .p-details h3 { font-size: 1rem; margin-bottom: 8px; color: #eee; }
+        .price { color: var(--primary); font-weight: 800; font-size: 1.2rem; display: block; margin-bottom: 15px; }
+
+        .btn-add { 
+            width: 100%; padding: 12px; background: transparent; color: #fff; 
+            border: 1px solid #fff; border-radius: 4px; font-weight: bold; cursor: pointer; transition: 0.3s;
+        }
+        .btn-add:hover { background: #fff; color: #000; }
+
+        /* Barra de Ação Inferior */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; width: 100%; background: #000;
+            padding: 20px 8%; border-top: 2px solid var(--primary);
             display: flex; justify-content: space-between; align-items: center; z-index: 2000;
         }
-        .total-info p { font-size: 1.2rem; font-weight: bold; }
+        .total-box p { font-size: 0.9rem; color: #888; }
+        .total-box b { font-size: 1.3rem; color: #fff; }
+
         .btn-whatsapp { 
-            background: var(--whatsapp); color: white; padding: 15px 30px; border-radius: 8px; 
+            background: var(--whatsapp); color: white; padding: 12px 25px; border-radius: 5px; 
             text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 10px;
         }
 
-        /* Rodapé e Localização */
-        .location-section { background: #0a0a0a; padding: 60px 8%; text-align: center; border-top: 1px solid #222; }
-        .location-section i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
+        /* Localização Beira */
+        .footer-loc { padding: 60px 8%; text-align: center; background: #050505; color: #666; }
+        .footer-loc b { color: #fff; }
     </style>
 </head>
 <body>
-
-    <div class="header-top">🔥 YOUNG TRS - ENVIAMOS PARA TODO MOÇAMBIQUE 🚀</div>
 
     <header>
         <div class="logo">YOUNG <span>TRS</span></div>
         <div style="color: var(--whatsapp); font-weight: bold;">874055437</div>
     </header>
 
-    <section class="hero">
-        <div>
-            <h1>Bem-vindo à YOUNG TRS</h1>
-            <p>Estilo Urbano & Sneakers de Elite na Beira</p>
-        </div>
-    </section>
+    <div class="welcome-header">
+        <h1>Seja Bem-vindo</h1>
+        <p>A TUA LOJA DE REFERÊNCIA NA BEIRA</p>
+    </div>
 
+    <!-- CAMISOLAS -->
     <div class="section">
-        <!-- CALÇADO -->
-        <h2 class="category-title">Sneakers Collection</h2>
+        <h2 class="category-label">Camisolas & T-Shirts</h2>
         <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500" alt="Nike Vermelha">
-                <div class="card-body"><h3>Nike Red Force</h3><span class="price">4.500 MT</span><button class="btn-select" onclick="add('Nike Red Force', 4500)">Selecionar</button></div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=500" alt="Camisa Preta">
+                <div class="p-details">
+                    <h3>Camisoula Black Cotton</h3>
+                    <span class="price">1.500 MT</span>
+                    <button class="btn-add" onclick="adicionar('Camisoula Preta', 1500)">Selecionar</button>
+                </div>
             </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=500" alt="Vans">
-                <div class="card-body"><h3>Vans Old School</h3><span class="price">3.800 MT</span><button class="btn-select" onclick="add('Vans Old School', 3800)">Selecionar</button></div>
+            <div class="product-card">
+                <img src="https://www.shutterstock.com/image-photo/white-tshirt-isolated-on-background-600nw-2187640321.jpg" alt="Camisa Branca">
+                <div class="p-details">
+                    <h3>Camisoula White Urban</h3>
+                    <span class="price">1.500 MT</span>
+                    <button class="btn-add" onclick="adicionar('Camisoula Branca', 1500)">Selecionar</button>
+                </div>
             </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=500" alt="Adidas">
-                <div class="card-body"><h3>Adidas Campus 00s</h3><span class="price">4.200 MT</span><button class="btn-select" onclick="add('Adidas Campus', 4200)">Selecionar</button></div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1597045566774-ed1aa29d497f?q=80&w=500" alt="Jordan">
-                <div class="card-body"><h3>Air Jordan 1 Retro</h3><span class="price">5.500 MT</span><button class="btn-select" onclick="add('Air Jordan 1', 5500)">Selecionar</button></div>
-            </div>
-        </div>
-
-        <!-- CAMISOLAS -->
-        <h2 class="category-title">Camisolas (Pretas & Brancas)</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=500" alt="Camisola Preta">
-                <div class="card-body"><h3>Camisoula Black Style</h3><span class="price">1.500 MT</span><button class="btn-select" onclick="add('Camisola Preta', 1500)">Selecionar</button></div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=500" alt="Camisola Branca">
-                <div class="card-body"><h3>Camisoula White Urban</h3><span class="price">1.500 MT</span><button class="btn-select" onclick="add('Camisola Branca', 1500)">Selecionar</button></div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=500" alt="T-shirt Preta">
-                <div class="card-body"><h3>T-Shirt Black Label</h3><span class="price">900 MT</span><button class="btn-select" onclick="add('T-shirt Preta', 900)">Selecionar</button></div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=500" alt="T-shirt Branca">
-                <div class="card-body"><h3>T-Shirt Minimalist White</h3><span class="price">900 MT</span><button class="btn-select" onclick="add('T-shirt Branca', 900)">Selecionar</button></div>
-            </div>
-        </div>
-
-        <!-- ACESSÓRIOS -->
-        <h2 class="category-title">Acessórios, Colares & Chapéus</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1635767793021-952078b197c0?q=80&w=500" alt="Colar">
-                <div class="card-body"><h3>Colares Urban Chain</h3><span class="price">600 MT</span><button class="btn-select" onclick="add('Colar Urban', 600)">Selecionar</button></div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=500" alt="Chapeu">
-                <div class="card-body"><h3>Chapéus YOUNG</h3><span class="price">850 MT</span><button class="btn-select" onclick="add('Chapeu YOUNG', 850)">Selecionar</button></div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=500" alt="Relogio">
-                <div class="card-body"><h3>Relógios Silver Edition</h3><span class="price">1.800 MT</span><button class="btn-select" onclick="add('Relogio Silver', 1800)">Selecionar</button></div>
+            <div class="product-card">
+                <img src="https://img.freepik.com/premium-photo/black-hoodie-white-background-mockup-sweatshirt_125493-547.jpg" alt="Hoodie">
+                <div class="p-details">
+                    <h3>Hoodie Black Premium</h3>
+                    <span class="price">2.200 MT</span>
+                    <button class="btn-add" onclick="adicionar('Hoodie Preto', 2200)">Selecionar</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- LOCALIZAÇÃO -->
-    <section class="location-section">
-        <i class="fas fa-map-marker-alt"></i>
-        <h2>Encontra-nos na Beira</h2>
-        <p>Moçambique, Província de Sofala. Entregas em toda a cidade e arredores.</p>
-        <p style="margin-top:10px; color: #666;">YOUNG TRS - Onde o estilo encontra a rua.</p>
-    </section>
-
-    <!-- BARRA DE COMPRA -->
-    <div class="order-bar">
-        <div class="total-info">
-            <p id="count">0 artigos selecionados</p>
-            <p id="total" style="color: var(--primary);">Total: 0 MT</p>
+    <!-- SNEAKERS -->
+    <div class="section">
+        <h2 class="category-label">Nike & Adidas</h2>
+        <div class="grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500" alt="Nike">
+                <div class="p-details">
+                    <h3>Nike Air Max Vermelha</h3>
+                    <span class="price">4.800 MT</span>
+                    <button class="btn-add" onclick="adicionar('Nike Vermelha', 4800)">Selecionar</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=500" alt="Adidas">
+                <div class="p-details">
+                    <h3>Adidas Campus 00s</h3>
+                    <span class="price">4.200 MT</span>
+                    <button class="btn-add" onclick="adicionar('Adidas Campus', 4200)">Selecionar</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=500" alt="Vans">
+                <div class="p-details">
+                    <h3>Vans Old School</h3>
+                    <span class="price">3.800 MT</span>
+                    <button class="btn-add" onclick="adicionar('Vans Old School', 3800)">Selecionar</button>
+                </div>
+            </div>
         </div>
-        <a href="javascript:void(0)" class="btn-whatsapp" onclick="enviarPedido()">
+    </div>
+
+    <!-- ACESSÓRIOS -->
+    <div class="section">
+        <h2 class="category-label">Acessórios</h2>
+        <div class="grid">
+            <div class="product-card">
+                <img src="https://img.freepik.com/premium-photo/luxury-gold-watch-isolated-white_125493-124.jpg" alt="Relogio">
+                <div class="p-details">
+                    <h3>Relógio Premium</h3>
+                    <span class="price">1.800 MT</span>
+                    <button class="btn-add" onclick="adicionar('Relógio', 1800)">Selecionar</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://img.freepik.com/premium-photo/necklace-isolated-white-background_125493-21.jpg" alt="Colar">
+                <div class="p-details">
+                    <h3>Colar Urban Chain</h3>
+                    <span class="price">650 MT</span>
+                    <button class="btn-add" onclick="adicionar('Colar', 650)">Selecionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-loc">
+        <p>📍 Localização: <b>Beira, Sofala - Moçambique</b></p>
+        <p>Entregas rápidas para todo o país.</p>
+    </div>
+
+    <!-- BARRA FIXA -->
+    <div class="bottom-nav">
+        <div class="total-box">
+            <p id="itens-txt">0 produtos</p>
+            <b id="total-txt">Total: 0 MT</b>
+        </div>
+        <a href="javascript:void(0)" class="btn-whatsapp" onclick="finalizar()">
             <i class="fab fa-whatsapp"></i> Enviar Pedido
         </a>
     </div>
 
     <script>
-        let pedido = [];
-        let totalVal = 0;
+        let cesta = [];
+        let total = 0;
 
-        function add(nome, preco) {
-            pedido.push(nome);
-            totalVal += preco;
-            document.getElementById('count').innerText = pedido.length + " artigos selecionados";
-            document.getElementById('total').innerText = "Total: " + totalVal.toLocaleString() + " MT";
-            alert(nome + " adicionado ao pedido!");
+        function adicionar(nome, preco) {
+            cesta.push(nome);
+            total += preco;
+            document.getElementById('itens-txt').innerText = cesta.length + " produtos selecionados";
+            document.getElementById('total-txt').innerText = "Total: " + total.toLocaleString() + " MT";
+            
+            // Notificação simples
+            const btn = event.target;
+            btn.innerText = "ADICIONADO ✓";
+            btn.style.borderColor = "#25d366";
+            btn.style.color = "#25d366";
         }
 
-        function enviarPedido() {
-            if(pedido.length === 0) return alert("Selecione algo primeiro!");
-            let msg = "🔥 *NOVO PEDIDO - YOUNG TRS (BEIRA)* 🔥\n\n";
-            pedido.forEach((item, i) => msg += (i+1) + ". " + item + "\n");
-            msg += "\n💰 *TOTAL: " + totalVal.toLocaleString() + " MT*";
-            msg += "\n📍 Localização: Beira, Sofala";
-            window.open("https://wa.me/258874055437?text=" + encodeURIComponent(msg));
+        function finalizar() {
+            if (cesta.length === 0) return alert("Selecione um artigo primeiro!");
+            
+            let resumo = "Olá YOUNG TRS! Gostaria de encomendar:\n\n";
+            cesta.forEach((item, index) => resumo += (index+1) + ". " + item + "\n");
+            resumo += "\n💰 Total: " + total.toLocaleString() + " MT";
+            resumo += "\n📍 Localização: Beira";
+            
+            const url = "https://wa.me/258874055437?text=" + encodeURIComponent(resumo);
+            window.open(url, '_blank');
         }
     </script>
 </body>
