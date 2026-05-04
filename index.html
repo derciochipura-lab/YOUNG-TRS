@@ -3,169 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOUNG TRS | Beira Official Store</title>
+    <title>YOUNG TRS | Urban Style</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #ff0000;
-            --whatsapp: #25d366;
-            --dark: #000000;
-            --gray: #111;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background-color: var(--dark); color: #fff; scroll-behavior: smooth; }
-
-        /* HEADER */
-        header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; background: rgba(0,0,0,0.9);
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #222;
-        }
-        .logo { font-size: 26px; font-weight: 900; letter-spacing: 2px; }
-        .logo span { color: var(--primary); }
-
-        /* TELA DE EXIBIÇÃO - FUNDO AIR JORDAN */
-        .hero {
-            height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1597045566774-ed1aa29d497f?q=80&w=1470&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .welcome-box {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            border-radius: 15px;
-            border: 2px solid var(--primary);
-            backdrop-filter: blur(5px);
-        }
-
-        .hero h1 { font-size: 3.5rem; text-transform: uppercase; font-weight: 900; line-height: 1; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; color: #ddd; margin-bottom: 25px; }
-        
-        .btn-start {
-            background: var(--primary); color: white; padding: 15px 40px; 
-            text-decoration: none; font-weight: bold; border-radius: 5px;
-            text-transform: uppercase; transition: 0.3s;
-        }
-        .btn-start:hover { transform: scale(1.05); background: #cc0000; }
-
-        /* SEÇÃO DE ARTIGOS */
-        .section { padding: 80px 8%; }
-        .section-title { margin-bottom: 40px; border-left: 5px solid var(--primary); padding-left: 15px; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        
-        .card { background: var(--gray); border-radius: 10px; overflow: hidden; transition: 0.4s; border: 1px solid #222; }
-        .card:hover { border-color: var(--primary); }
-        .card img { width: 100%; height: 320px; object-fit: cover; }
-        
-        .card-info { padding: 20px; text-align: center; }
-        .card-info h3 { font-size: 18px; margin-bottom: 10px; text-transform: uppercase; }
-        .price { color: var(--primary); font-size: 22px; font-weight: 900; display: block; margin-bottom: 20px; }
-
-        /* BOTÃO WHATSAPP DIRETO */
-        .btn-wa {
-            background: var(--whatsapp); color: white; padding: 12px;
-            text-decoration: none; display: flex; align-items: center; justify-content: center;
-            gap: 10px; font-weight: bold; border-radius: 5px; transition: 0.3s;
-        }
-        .btn-wa:hover { opacity: 0.8; }
-
-        /* FOOTER / LOCALIZAÇÃO */
-        footer { background: #000; padding: 60px 8%; text-align: center; border-top: 1px solid #222; }
-        .loc { color: var(--primary); font-weight: bold; margin-bottom: 10px; display: block; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-        }
-    </style>
 </head>
 <body>
 
+    <!-- Header / Nav -->
     <header>
         <div class="logo">YOUNG <span>TRS</span></div>
-        <div style="font-weight: bold;"><i class="fas fa-map-marker-alt" style="color:red"></i> BEIRA, MZ</div>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="https://wa.me/258874055437" class="btn-contato">Falar com Vendedor</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- TELA PRINCIPAL COM AIR JORDAN NO FUNDO -->
+    <!-- Hero Section (Fundo Impactante) -->
     <section class="hero">
-        <div class="welcome-box">
-            <p style="text-transform: uppercase; letter-spacing: 3px; color: var(--primary); font-weight: bold;">Seja Bem-Vindo</p>
-            <h1>O MELHOR DO<br>URBAN STYLE</h1>
-            <p>Qualidade Premium e os melhores preços de Moçambique.</p>
-            <a href="#loja" class="btn-start">Explorar Coleção</a>
+        <div class="hero-content">
+            <h1>ESTILO QUE DEFINE SUA GERAÇÃO</h1>
+            <p>Camisas, Sapatilhas e Camisolas exclusivas.</p>
+            <a href="#produtos" class="cta">Ver Coleção</a>
         </div>
     </section>
 
-    <!-- ARTIGOS -->
-    <section class="section" id="loja">
-        <div class="section-title"><h2>ARTIGOS DISPONÍVEIS</h2></div>
-        
-        <div class="grid">
-            <!-- Jordan -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1597045566774-ed1aa29d497f?w=600" alt="Air Jordan">
-                <div class="card-info">
-                    <h3>Air Jordan 1 Retro</h3>
-                    <span class="price">5.500 MT</span>
-                    <a href="https://wa.me/258874055437?text=Olá! Quero a Air Jordan 1 Retro" class="btn-wa">
-                        <i class="fab fa-whatsapp"></i> COMPRAR AGORA
-                    </a>
-                </div>
+    <!-- Seção de Produtos -->
+    <section id="produtos" class="products">
+        <h2>Nossas Peças</h2>
+        <div class="product-grid">
+            
+            <!-- Card Produto 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80" alt="Camisa">
+                <h3>Camisa Street Premium</h3>
+                <p>MZN 1.200,00</p>
+                <a href="https://wa.me/258874055437?text=Olá, quero saber mais sobre a Camisa Street Premium" class="buy-btn">
+                    <i class="fab fa-whatsapp"></i> Comprar
+                </a>
             </div>
 
-            <!-- Adidas -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1707057053538-422839999974?w=600" alt="Adidas">
-                <div class="card-info">
-                    <h3>Adidas Campus 00s</h3>
-                    <span class="price">4.200 MT</span>
-                    <a href="https://wa.me/258874055437?text=Olá! Quero o Adidas Campus" class="btn-wa">
-                        <i class="fab fa-whatsapp"></i> COMPRAR AGORA
-                    </a>
-                </div>
+            <!-- Card Produto 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Sapatilhas">
+                <h3>Sapatilha Turbo Red</h3>
+                <p>MZN 4.500,00</p>
+                <a href="https://wa.me/258874055437?text=Olá, quero saber mais sobre a Sapatilha Turbo Red" class="buy-btn">
+                    <i class="fab fa-whatsapp"></i> Comprar
+                </a>
             </div>
 
-            <!-- Camisola -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600" alt="Camisola">
-                <div class="card-info">
-                    <h3>Camisoula Urban Style</h3>
-                    <span class="price">1.500 MT</span>
-                    <a href="https://wa.me/258874055437?text=Olá! Quero a Camisoula Urban" class="btn-wa">
-                        <i class="fab fa-whatsapp"></i> COMPRAR AGORA
-                    </a>
-                </div>
+            <!-- Card Produto 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=500&q=80" alt="Camisolas">
+                <h3>Camisoula Oversized</h3>
+                <p>MZN 2.100,00</p>
+                <a href="https://wa.me/258874055437?text=Olá, quero saber mais sobre a Camisola Oversized" class="buy-btn">
+                    <i class="fab fa-whatsapp"></i> Comprar
+                </a>
             </div>
 
-            <!-- Relógio -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600" alt="Relogio">
-                <div class="card-info">
-                    <h3>Relógio Silver Urban</h3>
-                    <span class="price">1.800 MT</span>
-                    <a href="https://wa.me/258874055437?text=Olá! Quero o Relógio Silver" class="btn-wa">
-                        <i class="fab fa-whatsapp"></i> COMPRAR AGORA
-                    </a>
-                </div>
-            </div>
         </div>
     </section>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/258874055437" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <footer>
-        <span class="loc"><i class="fas fa-map-marker-alt"></i> LOCALIZAÇÃO: BEIRA, MOÇAMBIQUE</span>
-        <h2 style="margin-bottom: 15px;">YOUNG TRS OFFICIAL</h2>
-        <p>WhatsApp: 874055437</p>
-        <p style="opacity: 0.5; font-size: 12px; margin-top: 30px;">© 2026 YOUNG TRS - O Teu Estilo, Nossa Missão.</p>
+        <p>&copy; 2026 YOUNG TRS - Todos os direitos reservados.</p>
+        <p>Contacto: 874055437</p>
     </footer>
 
 </body>
